@@ -1,6 +1,6 @@
 <p align="center"><a href="https://quickout.mynisum.com" target="_blank"><img src="./logo.png" alt="Quickout logo"></a></p>
 
-# [QuickOut](https://quickout.mynisum.org/) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
+# [QuickOut](https://quickout.mynisum.com/) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
 
 QuickOut Framework is a well engineered solution taking the "Mobile First" approach with horizontal scalability, while using the latest UI frameworks and technologies. It provides buyers with a fast, simple and error-free checkout process that minimizes confusion and maximizes the value of the customer experience. Retailers can switch between multi-page, single-page or any other layout with the click of a button, as different users and different devices demands the layout that suits them. 
 
