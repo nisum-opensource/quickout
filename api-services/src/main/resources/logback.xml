@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  
+Copyright (C) Nisum Technologies
+
+This software may be modified and distributed under the terms
+of the MIT license.  See the LICENSE file for details. 
+-->
+
+<configuration>
+
+	<property name="DEV_HOME" value="./log/quickout" />
+	<property name="log_file_name" value="quickout.log" />
+	
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread]:%c:%L - %msg%n
+			</Pattern>
+		</encoder>
+	</appender> 
+	
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${DEV_HOME}/${log_file_name}</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread]:%c:%L - %msg%n
+			</Pattern>
+		</encoder>
+ 
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${DEV_HOME}/${log_file_name}.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+	</appender>
+	
+    <logger name="com.nisum.quickout" level="debug" additivity="false">
+		<appender-ref ref="FILE" />
+	</logger>
+	
+	<!-- Hibernate SQL logging with parameters -->
+	<!-- 
+	<logger name="org.hibernate.SQL" level="debug" additivity="false">
+		<appender-ref ref="FILE" />
+	</logger>
+	<logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="trace" additivity="false">
+		<appender-ref ref="FILE" />
+	</logger>
+	 -->
+    <logger name="com.nisum.quickout" level="debug" additivity="false">
+		<appender-ref ref="FILE" />
+	</logger>
+	
+    <root level="info">
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>

@@ -1,0 +1,55 @@
+<!--
+Copyright (C) Nisum Technologies
+
+This software may be modified and distributed under the terms
+of the MIT license.  See the LICENSE file for details.
+-->
+<div class="internal-pad-1">
+  <div class="row">
+    <div class="col-sm-6">
+      <!-- <div class="email-recycling-options"><input type="checkbox" name="recycling_options"> &nbsp; Yes, email me about recycling options</div> -->
+      &nbsp;
+    </div>
+    <div class="col-sm-6">
+      <div class="total-pricing-sec">
+        <div class="row">
+          <div class="col-sm-6 tabletresp1" [class]="layout==='layout-3'? 'col-sm-4' : 'col-sm-6'">&nbsp;</div>
+          <div class="col-sm-6 tabletresp2" [class]="layout==='layout-3'? 'col-sm-8' : 'col-sm-6'">
+            <div class="row">
+              <div class="col-sm-6 resp">
+                <h5>Bag Subtotal</h5>
+              </div>
+              <div class="col-sm-6 resp">
+                <div class="price">${{paymentSummary.sub_total | number:'1.2'}}</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 resp">
+                <h5 class="green">Free Shipping</h5>
+              </div>
+              <div class="col-sm-6 resp">
+                <div class="price green">${{paymentSummary.shipping}}</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 botbor resp">
+                <h5>Estimated Tax</h5>
+              </div>
+              <div class="col-sm-6 botbor resp">
+                <div class="price">${{paymentSummary.estimated_tax}}</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 resp">
+                <h4>Order Total</h4>
+              </div>
+              <div class="col-sm-6 resp">
+                <div class="total-price">${{paymentSummary.order_total | number:'1.2'}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

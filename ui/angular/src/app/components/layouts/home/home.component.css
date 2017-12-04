@@ -1,0 +1,18 @@
+.demo-btn {
+    margin-top: 20px; 
+    width: 100px; 
+    font-family: Arena-Condensed; 
+    font-size: 25px;
+    background: orange;
+    color: white;
+    /* color: #E0EEEE; */
+    text-align: center;
+}
+
+div > img {
+    margin-top: 20px;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}

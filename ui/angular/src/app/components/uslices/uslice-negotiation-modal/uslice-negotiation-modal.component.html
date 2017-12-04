@@ -1,0 +1,78 @@
+<!--
+Copyright (C) Nisum Technologies
+
+This software may be modified and distributed under the terms
+of the MIT license.  See the LICENSE file for details.
+-->
+<div id="pricepong" #quickoutModal class="modal fade" role="dialog" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header paddingZero">
+        <div class="row marginZero">
+          <div class="col-xs-3 col-md-3 modalStripes-blue"></div>
+          <div class="col-xs-3 col-md-3 modalStripes-green"></div>
+          <div class="col-xs-3 col-md-3 modalStripes-orange"></div>
+          <div class="col-xs-3 col-md-3 modalStripes-yellow">
+            <button type="button" class="close" data-dismiss="modal" data-toggle="tooltip" title="Close" (click)="onCancelNegotiate()">×</button>
+          </div>
+        </div>
+      </div>
+      <div class="row marginZero">
+      </div>
+      <div class="modal-body paddingZero">
+        <div class="row marginZero">
+          <div>
+            <div class="col-sm-5 col-md-5 wrapInfo disBlock">
+              <div class="col-md-12 col-sm-12 product-details marginTopPrice centerElem">
+                <div>
+                  <span id="pp-prod_name"></span>
+                  <br>
+                  <span class="priceColor">
+                   Subtotal Price:
+                   <span id="pp-lstPrc">{{paymentSummary.sub_total}}</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div id="pp-neg_form" class="col-sm-7 col-md-7 ItemDesc-BgColor itemPointer" style="display: block;">
+              <div class="form-group">
+                <div class="modalHeadingTxtSm">
+                  <span id="invalidCodeNote" style="color: red;">Invalid Promo Code. You can negotiate on the subtotal price if you like.</span><br/>
+                  <span>{{note}}<br/></span>
+                </div>
+
+                <label class="control-label col-xs-4 col-sm-4 textAlign-left">Your Offer :</label>
+                <div class="col-sm-8 col-xs-8 col-md-8">
+                  <input id="pp-txt_offer" class="form-control inputDeco" [(ngModel)]="askingPrice" type="number" placeholder="Asking price">
+                </div>
+                <br>
+                <br>
+                <button class="btn btn-primary " (click)="onNegotiateClick()" [disabled]="lastAttempt" type="button">Negotiate</button>
+                <button *ngIf="validResponse" class="btn btn-primary " (click)="onAcceptClick()" type="button">Accept Offer</button>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12" *ngIf="accepted">
+            <br><br>
+            <span style="color: green;">Congratulations!!! You have made some savings. You may now continue to Place the Order.</span>
+            <br><br>
+            <a (click)="onCancelNegotiate()" data-dismiss="modal"></a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer ">
+        <div class="row">
+          <div class="col-md-12 modal-footerTextAlign">
+            <br></div>
+          <div class="col-md-12">
+            <a (click)="onCancelNegotiate()" data-dismiss="modal">Cancel</a>
+            <div class="inline-normal policy">
+              <span>Policy / History</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

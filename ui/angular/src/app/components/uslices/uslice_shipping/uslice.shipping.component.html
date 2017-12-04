@@ -1,0 +1,269 @@
+<!--
+Copyright (C) Nisum Technologies
+
+This software may be modified and distributed under the terms
+of the MIT license.  See the LICENSE file for details.
+-->
+<h2 class="subheading" id="shippingAddressHeading">
+      <span class="iconnic" *ngIf="step.index > 0">{{step.index}}</span> 
+      {{step.title}} 
+      <a class="btn btn-secondary edit-button pull-right" 
+         id="shippingAddressEditButton" 
+         (click)="onEditClick()"
+         role="button">Edit
+      </a>
+</h2>
+<!-- Filled Shipping Info Section -->
+<div id="shippingFilledInfo" style="display:none;">
+   <div class="shipping-contact-form">
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="filled-info">
+               <fieldset>
+                  <div class="form-fields">
+                     <legend class="label">Information you entered</legend>
+                     <div class="section-padd">
+                        <p>
+                           Name: &nbsp; {{shippingInfo.firstName}} {{shippingInfo.lastName}} <br /> 
+                           Company: &nbsp; {{shippingInfo.companyName}}<br /> 
+                           Phone number: &nbsp; {{shippingInfo.areaCode}} {{shippingInfo.primaryPhone}} <br /> 
+                           Street Address: &nbsp; {{shippingInfo.addressInfo.address}} {{shippingInfo.addressInfo.address2}}<br />
+                        </p>
+                     </div>
+                  </div>
+               </fieldset>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- End of -->
+<!-- Input shipping Info Section -->
+<form id="shipping" (ngSubmit)="onContinueClick()" #f="ngForm">
+<div id="shippingAddressSection" [ngStyle]="{display: step.layout === 'layout-3' ? 'block' : 'none'}">
+   <div class="shipping-contact-form">
+      <div class="row">
+         <div class="col-sm-6">
+            <div>
+               <fieldset>
+                  <div class="form-fields">
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <legend class="label">Shipping Address </legend>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-5">
+                           <div class="form-group">
+                              <input [(ngModel)]="shippingInfo.firstName"
+                                     required
+                                     #firstName="ngModel"
+                                     name="firstName" 
+                                     type="text" 
+                                     id="shipping-user-firstname" 
+                                     class="form-control" 
+                                     placeholder="First Name"/>
+                              <span class="help-block" *ngIf="!firstName.valid && firstName.touched">First name is required!</span>
+                           </div>
+                        </div>
+                        <div class="col-sm-7">
+                           <div class="form-group">
+                              <input [(ngModel)]="shippingInfo.lastName"
+                                     required
+                                     #lastName="ngModel"
+                                     name="lastName" 
+                                     type="text" 
+                                     id="shipping-user-lastname" 
+                                     class="form-control" 
+                                     placeholder="Last Name" />
+                              <span class="help-block" *ngIf="!lastName.valid && lastName.touched">Last name is required!</span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <div class="form-group">
+                              <input [(ngModel)]="shippingInfo.companyName"
+                                     name="companyName" 
+                                     type="text" 
+                                     id="" 
+                                     class="form-control" 
+                                     placeholder="Company Name (Optional)" />
+                            </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-3">
+                           <div class="form-group">
+                              <input [(ngModel)]="shippingInfo.areaCode"
+                                     required
+                                     #areaCode="ngModel"
+                                     name="areaCode" 
+                                     type="text" 
+                                     id="" 
+                                     class="form-control" 
+                                     placeholder="Area Code" />
+                              <span class="help-block" *ngIf="!areaCode.valid && areaCode.touched">Area code is required!</span>
+                           </div>
+                        </div>
+                        <div class="col-sm-9">
+                           <div class="form-group">
+                              <input [(ngModel)]="shippingInfo.primaryPhone"
+                                     required
+                                     #primaryPhone="ngModel"
+                                     name="primaryPhone" 
+                                     type="text" id="" 
+                                     class="form-control" 
+                                     placeholder="Primary Phone" />
+                              <span class="help-block" *ngIf="!primaryPhone.valid && primaryPhone.touched">Phone number is required!</span>
+                           </div>
+                        </div>
+                     </div>
+                     <div ngModelGroup="addressInfo">
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <div class="form-group">
+                              <input [(ngModel)]="shippingInfo.addressInfo.address"
+                                     required
+                                     #address="ngModel"
+                                     name="address" 
+                                     type="text" 
+                                     id="" 
+                                     class="form-control" 
+                                     placeholder="Street Address" />
+                              <span class="help-block" *ngIf="!address.valid && address.touched">Address is required!</span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <div class="form-group">
+                              <input [(ngModel)]="shippingInfo.addressInfo.address2"
+                                     name="address2" 
+                                     type="text" 
+                                     id="" 
+                                     class="form-control" 
+                                     placeholder="Apt, Suite, Bldg, Gate Code. (optional)" />
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-3">
+                           <div class="form-group">
+                              <input [(ngModel)]="shippingInfo.addressInfo.zipCode"
+                                     required
+                                     #zipCode="ngModel"
+                                     name="zipCode" 
+                                     type="text" 
+                                     id="" 
+                                     class="form-control" 
+                                     placeholder="Zip Code" />
+                              <span class="help-block" *ngIf="!zipCode.valid && zipCode.touched">Zip code is required!</span>
+                           </div>
+                        </div>
+                        <div class="col-sm-9">
+                           <div class="form-group">
+                              <div class="enter-zip-txt">Enter Zip for City and State</div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <p>United States</p>
+                           </div>
+                        </div>
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <div class="help-box" id="d_tip1">
+                                 <a href="#" class="close-tip pull-right">&times;</a>
+                                 <p>Lorem ipsum dolor sit amit comset de terelo fdsje. </p>
+                                 <p>Lorem ipsum dolor sit amit comset de terelo fdsje. </p>
+                              </div>
+                              <p><input name="business" type="checkbox" id="" placeholder="" /> This is a business address &nbsp; <a href="#" class="help-tip" id="tip1">?</a></p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  </div>
+               </fieldset>
+               <fieldset>
+                  <div class="form-fields">
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <legend class="label">Shipping Notifications</legend>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <p>Shipment notification emails are sent to the Billing Contact. Another recipient email address may be added below.</p>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <div class="form-group">
+                              <input [(ngModel)]="shippingInfo.notifEmail"
+                                     name="notifEmail" 
+                                     type="text" 
+                                     id="" 
+                                     class="form-control" 
+                                     placeholder="Email Address (optional)" />
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <p>For shipment updates via text messages, enter a mobile number below.</p>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-3">
+                           <div class="form-group">
+                              <input [(ngModel)]="shippingInfo.notifAreaCode"
+                                     name="notifAreaCode" 
+                                     type="text" 
+                                     id="" 
+                                     class="form-control" 
+                                     placeholder="Area Code" />
+                           </div>
+                        </div>
+                        <div class="col-sm-9">
+                           <div class="form-group">
+                              <input [(ngModel)]="shippingInfo.notifPhone"
+                                     name="notifPhone" 
+                                     type="text" 
+                                     id="" 
+                                     class="form-control" 
+                                     placeholder="Mobile Phone (optional)" />
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </fieldset>
+            </div>
+         </div>
+         <div class="col-sm-6">
+            <div class="policy-points">
+               <div class="help-box" id="d_tip2">
+                  <a href="#" class="close-tip pull-right">x</a>
+                  <p>Shipment notification emails are sent to the Billing Contact. Another recipient email address may be added below. Shipment notification emails are sent to the Billing Contact. Another recipient email address may be added
+                     below.
+                  </p>
+               </div>
+               <h4>Shipping Policy <span>&nbsp;|&nbsp;</span> <a href="#">Learn more</a> &nbsp; <a href="#" class="help-tip" id="tip2">?</a></h4>
+               <ul>
+                  <li>Signature may be required for delivery</li>
+                  <li>We do not ship to P.O. boxes</li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- End of Shipping Info section -->
+<!-- Second continue button -->
+<div class="continue-button-section" id="continueButtonSec2" [ngStyle]="{display: step.layout === 'layout-3' ? 'block' : 'none'}">
+      <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Continue</button>
+</div>
+<!-- End of second continue button -->
+</form>

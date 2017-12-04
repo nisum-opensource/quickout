@@ -1,0 +1,45 @@
+<!--
+Copyright (C) Nisum Technologies
+
+This software may be modified and distributed under the terms
+of the MIT license.  See the LICENSE file for details.
+-->
+<!-- Header -->
+<header>
+   <div class="header">
+      <div class="header-container">
+         <div class="header-resp-back">
+            <a href="#"><img src="assets/images/chevron-left.png" border="0" /></a>
+         </div>
+         <div class="logo">
+            <a routerLink="/home">
+              <img src="assets/images/QuickOut-logo.png" class="img-responsive" border="0"/>
+            </a>
+         </div>
+         <div class="main-navigation">
+            <ul>
+               <li><a href="" [routerLink]="['/1']">Layout-1</a></li>
+               <li><a href="" [routerLink]="['/2']">Layout-2</a></li>
+               <li><a href="" [routerLink]="['/3']">Layout-3</a></li>
+            </ul>
+         </div>
+         <div class="main-navigation pull-right" id="in/out" style="width: 10%">
+            <ul style="float:right">
+               <li style="padding: 0px;">
+                  <a (click)="signin()" *ngIf="!isLoggedIn">Sign In</a>
+                  <a (click)="signout()" *ngIf="isLoggedIn">Sign Out</a>
+               </li>
+            </ul>
+         </div>
+         <div class="clear"></div>
+      </div>
+   </div>
+</header>
+<!-- End of header -->
+
+<div class="container">
+   <div class="jumbotron">
+     <p>QuickOut enables flexible layout, as a result businesses can switch between layouts without rebuilding the components. For example, all the layouts below uses the same components.</p>
+   </div>  
+</div>
+ 

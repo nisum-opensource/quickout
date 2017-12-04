@@ -1,0 +1,94 @@
+<!--
+Copyright (C) Nisum Technologies
+
+This software may be modified and distributed under the terms
+of the MIT license.  See the LICENSE file for details.
+-->
+<div class="internal-pad-1">
+  <h2>
+    <span class="iconnic" *ngIf="step.index > 0">{{step.index}}</span> {{step.title}}
+    <!-- <a class="btn btn-secondary edit-button pull-right" 
+       id="deliveryOptionsEditButton" 
+       (click)="onEditClick()" 
+       role="button">Edit
+    </a> -->
+    <app-uslice-apple-pay></app-uslice-apple-pay>
+  </h2>
+  <!-- Start of Select delivery Options Section -->
+  <!-- <button #ref1>Click me</button>  -->
+
+  <div id="selectDeliveyOptionsDiv">
+    <div class="prod-info" *ngFor="let item of items; let i=index;">
+      <div class="row">
+        <div class="col-sm-3 do-resp">
+          <div class="image"><img class="img-responsive" src="{{item.imageSource}}" /></div>
+        </div>
+        <div class="col-sm-9 do-resp">
+          <div class="row">
+            <div class="col-sm-8 col-md-4 do-resp">
+              <h3>{{item.skuName}}</h3>
+            </div>
+            <div class="col-sm-2 col-md-4 do-resp">
+              <div class="price pull-right">{{item.listPrice | number:'1.2' | currency:'USD':true}} x {{item.quantity}}</div>
+            </div>
+            <div class="col-sm-2 col-md-4 do-resp">
+              <div class="price pull-right">
+                {{item.listPrice * item.quantity | number:'1.2' | currency:'USD':true}}
+                <br>
+                <span class="price pull-right" *ngIf="responseItems && responseItems.length > 0" style="color:green">{{responseItems[i].reponsePrice * responseItems[i].quantity | number:'1.2' | currency:'USD':true}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of select Delivery options section -->
+  <!-- Start of Selected Delivery option section -->
+  <div id="selectedDeliveyOptionsDiv" style="display:none;">
+    <div class="prod-info" *ngFor="let item of items; let i=index">
+      <div class="row">
+        <div class="col-sm-3 do-resp">
+          <div class="image"><img src="{{item.imageSource}}" /></div>
+        </div>
+        <div class="col-sm-9 do-resp">
+          <div class="row">
+            <div class="col-sm-8 do-resp">
+              <h3>{{item.skuName}}</h3>
+            </div>
+            <div class="col-sm-2 do-resp">
+              <div class="price pull-left">{{item.listPrice | number:'1.2' | currency:'USD':true}} x {{item.quantity}}</div>
+            </div>
+            <div class="col-sm-2 do-resp">
+              <div class="price pull-right">{{item.listPrice * item.quantity | number:'1.2' | currency:'USD':true}}
+                <br>
+                <span class="price" *ngIf="responseItems!==null && responseItems.length > 0" style="color:green">{{responseItems[i].reponsePrice * responseItems[i].quantity | number:'1.2' | currency:'USD':true}}</span>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="grad-box">
+                <div class="row">
+                   <div class="col-sm-2 resp">Ship:</div>
+                   <div class="col-sm-10 resp">Delivery: In Stock - Free</div>
+                </div>
+             </div>  -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of Selected delivery option section -->
+</div>
+<!-- Delivery option section first continue button -->
+<div class="continue-button-section" id="continueButtonSec1" *ngIf="step.layout != 'layout-3' && !accepted">
+  <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3" *ngIf="!promoCode "><a style="float: left;" (click)="onEnterPromoCode()">Enter Promo Code</a></div>
+  <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3" *ngIf="promoCode && !negotiate">
+    <div class="form-group">
+      <input name="promo-code" type="text" id="" placeholder="Promo Code" /> &nbsp;
+      <a data-toggle="modal" data-target="#pricepong" style="cursor: pointer" (click)="onApplyPromoCode()">Apply</a>
+    </div>
+  </div>
+  <app-uslice-negotiation-modal></app-uslice-negotiation-modal>
+
+  <a class="btn btn-primary" role="button" (click)="onContinueClick()">Continue</a>
+</div>
+<!-- End of first Continue button -->

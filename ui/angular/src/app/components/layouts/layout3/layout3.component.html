@@ -1,0 +1,39 @@
+<!--
+Copyright (C) Nisum Technologies
+
+This software may be modified and distributed under the terms
+of the MIT license.  See the LICENSE file for details.
+-->
+<div class="site-wrapper">
+   <app-uslice-nav></app-uslice-nav>
+   <div class="delivery-options-page">
+      <div class="site-container2">
+         <div class="">
+            <div class="row">
+                <div class="col-md-6 delivery-options-box">
+                    <app-uslice-shipping-info [step]="step2"></app-uslice-shipping-info> 
+                    <app-uslice-payment-info [step]="step3"></app-uslice-payment-info>
+                    <app-uslice-account-info [step]="step4" *ngIf="!isLoggedIn"></app-uslice-account-info>                    
+                </div>
+                <div class="col-md-1" style="width: 10px">&nbsp;</div>
+                <div class="col-md-5 delivery-options-box item-pod-layout3">
+                    <app-uslice-shopping-item [step]="step1"></app-uslice-shopping-item>
+                    <hr/>
+                    <app-uslice-summary-info [layout]="step1.layout"></app-uslice-summary-info>
+                    <div class="continue-button-section" *ngIf="showPlaceOrderButton">
+                        <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#myModal">Place Order Now</a>
+                    </div>                                          
+                </div>
+            </div>
+            <app-uslice-modal></app-uslice-modal>
+         </div>
+      </div>
+   </div>
+   <footer>
+      <div class="footer">
+         <div class="site-container">
+            <div class="clear"></div>
+         </div>
+      </div>
+   </footer>
+</div>

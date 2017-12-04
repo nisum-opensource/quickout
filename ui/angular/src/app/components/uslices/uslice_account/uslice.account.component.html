@@ -1,0 +1,63 @@
+<!--
+Copyright (C) Nisum Technologies
+
+This software may be modified and distributed under the terms
+of the MIT license.  See the LICENSE file for details.
+-->
+<h2 class="subheading" id="createAccountHeading">
+  <span class="iconnic" *ngIf="step.index > 0">{{step.index}}</span> 
+  Account
+</h2>
+<div id="createIDSection" style="display:none">
+    <div class="shipping-contact-form">
+      <div class="create-account-id-div">
+          <div class="row">
+            <div class="col-sm-6">
+                <fieldset>
+                  <div class="form-fields">
+                      <legend class="label">Create ID (optional)</legend>
+                      <p>If you create an account, we'll save your information for future purchases, and you can return to check your order status.</p>
+                  </div>
+                </fieldset>
+            </div>
+            <div class="col-sm-6">
+                <fieldset>
+                  <div class="form-fields">
+                      <legend class="label">ID:faraazhameed1990@gmail.com</legend>
+                      <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                              <input name="pass" type="password" id="" class="form-control" placeholder="Password" />
+                            </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                              <input name="confpass" type="password" id="" class="form-control" placeholder="Confirm Password" />
+                            </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                              <input class="magic-checkbox" type="checkbox" name="updated" id="keppmeupdated" value="option">
+                              <label for="keppmeupdated">
+                              <span class="small">Keep me up to date with news, software updates, and the latest information on products and services.</span>
+                              </label>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+                </fieldset>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>
+<!-- End of last create ID section code -->
+<!-- Continue as guest button -->
+<div class="continue-button-section" id="continueButtonSec4" style="display:none;">
+  <a class="btn btn-primary"id="guest" role="button">Continue as Guest</a>
+</div>
+<!-- end of continue as guest button code -->

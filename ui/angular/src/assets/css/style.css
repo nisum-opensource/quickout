@@ -1,0 +1,986 @@
+/*
+Author: Saad
+*/
+
+
+/* fonts used */
+@font-face {
+   font-family: Arena-Condensed;
+   src: url(../fonts/Arena-Condensed.ttf);
+}
+
+@font-face {
+   font-family: Oswald-Light;
+   src: url(../fonts/Oswald-Light.ttf);
+}
+
+@font-face {
+   font-family: Oswald-Bold;
+   src: url(../fonts/Oswald-Bold.ttf);
+}
+
+@font-face {
+   font-family: Oswald-Medium;
+   src: url(../fonts/Oswald-Medium.ttf);
+}
+
+@font-face {
+   font-family: OpenSans-Light;
+   src: url(../fonts/OpenSans-Light.ttf);
+}
+
+@font-face {
+   font-family: OpenSans-Regular;
+   src: url(../fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+   font-family: OpenSans-Semibold;
+   src: url(../fonts/OpenSans-Semibold.ttf);
+}
+
+@font-face {
+   font-family: OpenSans-Bold;
+   src: url(../fonts/OpenSans-Bold.ttf);
+}
+
+@font-face {
+   font-family: LucidaGrandeRegular;
+   src: url(../fonts/LucidaGrandeRegular.ttf);
+}
+
+body {
+   margin: 0px;
+   padding: 0px;
+   font-family: OpenSans-Regular;
+   -webkit-font-smoothing: antialiased;
+   background: #f1f1f1;
+}
+
+*,
+*:before,
+*:after {
+   box-sizing: border-box;
+}
+
+a {
+   -o-transition: .5s;
+   -ms-transition: .5s;
+   -moz-transition: .5s;
+   -webkit-transition: .5s;
+   transition: .5s;
+}
+
+.clearfix,
+.clear {
+   clear: both;
+}
+.debug-with-border {
+    border: 1px solid white;
+}
+.site-container {
+   width: 1000px;
+   margin: 0px auto;
+}
+.site-container2 {
+    width: 95%;
+    margin: 0px auto;
+ }
+
+/* start of header css */
+
+.header-container {
+   width: 1000px;
+   margin: 0px auto;
+}
+
+.header {
+   background: #303030;
+   padding: 10px 0px 10px 0px;
+}
+
+.header .logo {
+   float: left;
+   width: 15%;
+   /* line-height: 1px; */
+}
+
+.header .logo a {
+   text-decoration: none;
+}
+
+.header .main-navigation {
+   float: left;
+   width: 70%;
+   padding-top: 4px;
+   margin-left: 20px;
+}
+
+.header .main-navigation ul {
+   margin: 0px;
+   padding: 0px;
+   list-style: none;
+}
+
+.header .main-navigation ul li {
+   margin: 0px;
+   padding: 0px 60px 0px 0px;
+   list-style: none;
+   display: inline-block;
+   font-family: OpenSans-Regular;
+   font-size: 16px;
+}
+
+.header .main-navigation ul li a {
+   font-size: 14px;
+   text-decoration: none;
+   color: #fff;
+   cursor: pointer;
+}
+
+.header .main-navigation ul li a:hover {
+   color: #73c0fc;
+}
+
+
+/* end of header css */
+
+.delivery-options-page {
+   padding: 5px 0px;
+}
+
+
+/* Page main white box in which whole content are placed */
+
+.delivery-options-box {
+   -webkit-border-radius: 7px;
+   -moz-border-radius: 7px;
+   border-radius: 7px;
+   background: #fff;
+   border: 1px solid #d2d2d2;
+}
+
+.delivery-options-box .internal-pad-1 {
+   padding: 0px 20px;
+}
+
+
+/* first section heading */
+
+.delivery-options-box h2 {
+   font-family: OpenSans-Regular;
+   font-size: 22px;
+   line-height: 28px;
+   color: #000;
+   padding: 25px 0px;
+   margin: 0px 0px 25px 0px;
+   font-weight: normal;
+   border-bottom: 1px solid #d5d5d5;
+}
+
+.delivery-options-box span.iconnic {
+   border: 1px solid #000;
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   border-radius: 50%;
+   font-size: 15px;
+   line-height: 26px;
+   font-weight: normal;
+   font-family: Oswald-Light;
+   width: 26px;
+   height: 26px;
+   display: inline-block;
+   text-align: center;
+}
+
+
+/* section headings payment info and others */
+
+.delivery-options-box h2.subheading {
+   font-family: OpenSans-Regular;
+   font-size: 22px;
+   line-height: 28px;
+   color: #999;
+   padding: 15px 20px;
+   margin: 0px 0px 0px 0px;
+   font-weight: normal;
+   border-bottom: 1px solid #e6e6e6;
+}
+
+.delivery-options-box h2.subheading span.iconnic {
+   border: 1px solid #999;
+}
+
+.delivery-options-box h2.active {
+   color: #000;
+   border-bottom: 1px solid #d5d5d5;
+   border-top: 1px solid #d5d5d5;
+}
+
+.delivery-options-box h2.active span.iconnic {
+   border: 1px solid #000;
+}
+
+
+/* First section product info box css */
+
+.delivery-options-box .prod-info {
+   margin-bottom: 30px;
+   border-bottom: 1px solid #d5d5d5;
+   padding-bottom: 30px;
+}
+
+.delivery-options-box .prod-info:last-child {
+   border-bottom: none;
+   padding-bottom: 0px;
+}
+
+.delivery-options-box .prod-info h3 {
+   font-family: OpenSans-Semibold;
+   font-size: 18px;
+   line-height: 24px;
+   color: #000;
+   padding: 0px 0px 5px 0px;
+   margin: 0px 0px 0px 0px;
+   font-weight: normal;
+}
+
+.delivery-options-box .prod-info .price {
+   font-family: OpenSans-Semibold;
+   font-size: 14px;
+   line-height: 24px;
+   color: #000;
+}
+
+.delivery-options-box .prod-info .grad-box {
+   border: 1px solid #d8d8d8;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   padding: 5px 15px;
+   background: rgba(255, 255, 255, 1);
+   background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(240, 240, 240, 1)));
+   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f0f0f0', GradientType=0);
+   font-size: 13px;
+}
+
+.delivery-options-box .prod-info .image {
+   text-align: center;
+}
+
+.delivery-options-box .prod-info .image img {
+   width: 110px;
+}
+
+.delivery-options-box .prod-info .grad-box .row {
+   padding-bottom: 5px;
+   padding-top: 5px;
+}
+
+.delivery-options-box .prod-info .grad-box .row label {
+   font-weight: normal;
+}
+
+
+/* Continue button section gradient strip */
+
+.delivery-options-box .continue-button-section {
+   border-top: 1px solid #d8d8d8;
+   border-bottom: 1px solid #e6e6e6;
+   padding: 10px 20px;
+   background: rgba(255, 255, 255, 1);
+   background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(240, 240, 240, 1)));
+   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f0f0f0', GradientType=0);
+   font-size: 13px;
+   text-align: right;
+}
+
+
+/* Continue blue button */
+
+.delivery-options-box .continue-button-section .btn-primary {
+   font-size: 13px;
+   font-family: OpenSans-Semibold;
+   background: rgba(63, 159, 234, 1);
+   background: -moz-linear-gradient(top, rgba(63, 159, 234, 1) 0%, rgba(0, 119, 204, 1) 100%);
+   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(63, 159, 234, 1)), color-stop(100%, rgba(0, 119, 204, 1)));
+   background: -webkit-linear-gradient(top, rgba(63, 159, 234, 1) 0%, rgba(0, 119, 204, 1) 100%);
+   background: -o-linear-gradient(top, rgba(63, 159, 234, 1) 0%, rgba(0, 119, 204, 1) 100%);
+   background: -ms-linear-gradient(top, rgba(63, 159, 234, 1) 0%, rgba(0, 119, 204, 1) 100%);
+   background: linear-gradient(to bottom, rgba(63, 159, 234, 1) 0%, rgba(0, 119, 204, 1) 100%);
+   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#3f9fea', endColorstr='#0077cc', GradientType=0);
+   padding-right: 30px;
+   padding-left: 30px;
+}
+
+.delivery-options-box .email-recycling-options {
+   color: #555;
+   font-size: 12px;
+   padding: 20px 30px;
+}
+
+
+/* Start of Total pricing section css */
+
+.delivery-options-box .total-pricing-sec {
+   font-size: 13px;
+   padding-top: 20px;
+}
+
+.delivery-options-box .total-pricing-sec h5 {
+   font-size: 13px;
+   line-height: 22px;
+   font-family: OpenSans-Semibold;
+   font-weight: normal;
+   color: #333;
+   padding: 0px;
+   margin: 0px;
+   text-align: right;
+}
+
+.delivery-options-box .total-pricing-sec .price {
+   font-size: 13px;
+   line-height: 22px;
+   font-family: OpenSans-Regular;
+   font-weight: normal;
+   color: #333;
+   padding: 0px;
+   margin: 0px;
+   text-align: right;
+}
+
+.delivery-options-box .total-pricing-sec h5.green,
+.delivery-options-box .total-pricing-sec .price.green {
+   color: #3ba64f;
+   padding-bottom: 7px;
+}
+
+.delivery-options-box .total-pricing-sec h4 {
+   font-size: 16px;
+   line-height: 22px;
+   font-family: OpenSans-Bold;
+   font-weight: normal;
+   color: #000;
+   padding: 7px 0px;
+   margin: 0px;
+   text-align: right;
+}
+
+.delivery-options-box .total-pricing-sec .botbor {
+   border-bottom: 1px solid #dfdfdf;
+}
+
+.delivery-options-box .total-pricing-sec .total-price {
+   font-size: 16px;
+   line-height: 22px;
+   font-family: OpenSans-Bold;
+   font-weight: normal;
+   color: #000;
+   padding: 7px 0px;
+   margin: 0px;
+   text-align: right;
+}
+@media only screen and (min-width: 1440px) {
+    .item-pod-layout3 {
+        width: 47.66666667%;
+        /* border: 10px solid red; */
+    }
+}
+
+/* end of total pricing section css */
+
+
+/* start of bottom text and promo code sections css */
+
+.delivery-options-box .bottom-box-text {
+   border-top: 1px solid #cccccc;
+   padding: 20px 20px;
+   background: rgba(255, 255, 255, 1);
+   background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(240, 240, 240, 1)));
+   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f0f0f0', GradientType=0);
+   font-size: 13px;
+   -webkit-border-bottom-right-radius: 7px;
+   -webkit-border-bottom-left-radius: 7px;
+   -moz-border-radius-bottomright: 7px;
+   -moz-border-radius-bottomleft: 7px;
+   border-bottom-right-radius: 7px;
+   border-bottom-left-radius: 7px;
+   /* margin-top: 25px;  */
+}
+
+.delivery-options-box .bottom-box-text p {
+   color: #555;
+   font-size: 11px;
+   padding: 0px;
+   margin: 0px;
+   line-height: 17px;
+   max-width: 77%;
+}
+
+.delivery-options-box .enter-promocode .negotiate-cart{
+   font-size: 12px;
+}
+
+
+/*---- */
+
+
+/* Shipping and other entry forms styling css - start */
+
+.delivery-options-box .shipping-contact-form {
+   padding: 20px 50px;
+}
+
+.delivery-options-box .shipping-contact-form fieldset legend.label {
+   font-size: 13px;
+   color: #000;
+   font-family: OpenSans-Bold;
+   font-weight: normal;
+   margin: 0px;
+   padding: 0px 0px 10px 0px;
+   border: none;
+   display: block;
+   border-radius: 0px;
+   text-align: left;
+}
+
+.delivery-options-box .shipping-contact-form .form-fields .form-control {
+   font-size: 12px;
+}
+
+.delivery-options-box .shipping-contact-form .form-fields .col-sm-1,
+.delivery-options-box .shipping-contact-form .form-fields .col-sm-2,
+.delivery-options-box .shipping-contact-form .form-fields .col-sm-3,
+.delivery-options-box .shipping-contact-form .form-fields .col-sm-4,
+.delivery-options-box .shipping-contact-form .form-fields .col-sm-5,
+.delivery-options-box .shipping-contact-form .form-fields .col-sm-6,
+.delivery-options-box .shipping-contact-form .form-fields .col-sm-7,
+.delivery-options-box .shipping-contact-form .form-fields .col-sm-8,
+.delivery-options-box .shipping-contact-form .form-fields .col-sm-9,
+.delivery-options-box .shipping-contact-form .form-fields .col-sm-10,
+.delivery-options-box .shipping-contact-form .form-fields .col-sm-11,
+.delivery-options-box .shipping-contact-form .form-fields .col-sm-12 {
+   padding-right: 5px;
+   padding-left: 5px;
+}
+
+.delivery-options-box .shipping-contact-form .form-fields .row {
+   margin-right: -5px;
+   margin-left: -5px;
+}
+
+.delivery-options-box .shipping-contact-form .form-fields .enter-zip-txt {
+   font-size: 13px;
+   padding-top: 8px;
+}
+
+.delivery-options-box .shipping-contact-form .form-fields p {
+   font-size: 13px;
+   margin-bottom: 5px;
+   color: #555;
+}
+
+.delivery-options-box .shipping-contact-form .policy-points h4 {
+   font-size: 13px;
+   color: #000;
+   font-family: OpenSans-Bold;
+   font-weight: normal;
+   margin: 0px;
+   padding: 0px 0px 10px 0px;
+}
+
+.delivery-options-box .shipping-contact-form .policy-points h4 a,
+.delivery-options-box .shipping-contact-form .policy-points h4 span {
+   font-size: 13px;
+   font-family: OpenSans-Light;
+   font-weight: normal;
+}
+
+.delivery-options-box .shipping-contact-form .policy-points ul {
+   font-size: 12px;
+   font-family: OpenSans-Light;
+   color: #555;
+   margin: 0px 7px;
+   padding: 0px 7px;
+}
+
+.delivery-options-box .shipping-contact-form .policy-points ul li {
+   font-size: 12px;
+   font-family: OpenSans-Light;
+   color: #555;
+   margin: 0px;
+   padding: 4px 0px;
+}
+
+.delivery-options-box .payment-method-selection .cc-sec-padd {
+   padding: 10px 32px;
+}
+
+.delivery-options-box .payment-method-selection .offers-banner {
+   padding: 50px 0px 10px 0px;
+}
+
+.delivery-options-box .payment-method-selection .offers-banner img {
+   width: 80%;
+}
+
+
+/* End of forms css */
+
+
+/* Tabs css */
+
+ul.store-tabs {
+   font-size: 12px;
+   margin: 0px 0px 0px 0px;
+   padding: 0px;
+}
+
+.store-tabs li {
+   display: inline;
+   float: left;
+   width: 33.33%;
+   font-size: 12px;
+   color: #0085cf;
+   text-align: center;
+   padding: 3px 10px;
+   cursor: pointer;
+   border: 1px solid #cdcdcd;
+   margin: 0px;
+   background: rgba(255, 255, 255, 1);
+   background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(240, 240, 240, 1)));
+   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f0f0f0', GradientType=0);
+}
+
+.store-tabs li:first-child {
+   border-right: none;
+   -webkit-border-top-left-radius: 10px;
+   -webkit-border-bottom-left-radius: 10px;
+   -moz-border-radius-topleft: 10px;
+   -moz-border-radius-bottomleft: 10px;
+   border-top-left-radius: 10px;
+   border-bottom-left-radius: 10px;
+}
+
+.store-tabs li:last-child {
+   border-left: none;
+   -webkit-border-top-right-radius: 10px;
+   -webkit-border-bottom-right-radius: 10px;
+   -moz-border-radius-topright: 10px;
+   -moz-border-radius-bottomright: 10px;
+   border-top-right-radius: 10px;
+   border-bottom-right-radius: 10px;
+}
+
+.store-tabs li.active {
+   background: rgba(217, 217, 217, 1);
+   background: -moz-linear-gradient(top, rgba(217, 217, 217, 1) 0%, rgba(255, 255, 255, 1) 100%);
+   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(217, 217, 217, 1)), color-stop(100%, rgba(255, 255, 255, 1)));
+   background: -webkit-linear-gradient(top, rgba(217, 217, 217, 1) 0%, rgba(255, 255, 255, 1) 100%);
+   background: -o-linear-gradient(top, rgba(217, 217, 217, 1) 0%, rgba(255, 255, 255, 1) 100%);
+   background: -ms-linear-gradient(top, rgba(217, 217, 217, 1) 0%, rgba(255, 255, 255, 1) 100%);
+   background: linear-gradient(to bottom, rgba(217, 217, 217, 1) 0%, rgba(255, 255, 255, 1) 100%);
+   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#ffffff', GradientType=0);
+}
+
+.shipping-contact-form .tab-sections {
+   margin-top: 25px;
+}
+
+.shipping-contact-form .tab-sections .financing-sec-img img {
+   width: 100%;
+}
+
+
+/* end of tabs css */
+
+.btn-primary.btn-grad-blue {
+   font-size: 13px;
+   background: rgba(63, 159, 234, 1);
+   background: -moz-linear-gradient(top, rgba(63, 159, 234, 1) 0%, rgba(0, 119, 204, 1) 100%);
+   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(63, 159, 234, 1)), color-stop(100%, rgba(0, 119, 204, 1)));
+   background: -webkit-linear-gradient(top, rgba(63, 159, 234, 1) 0%, rgba(0, 119, 204, 1) 100%);
+   background: -o-linear-gradient(top, rgba(63, 159, 234, 1) 0%, rgba(0, 119, 204, 1) 100%);
+   background: -ms-linear-gradient(top, rgba(63, 159, 234, 1) 0%, rgba(0, 119, 204, 1) 100%);
+   background: linear-gradient(to bottom, rgba(63, 159, 234, 1) 0%, rgba(0, 119, 204, 1) 100%);
+   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#3f9fea', endColorstr='#0077cc', GradientType=0);
+}
+
+.smaller {
+   color: #999;
+   font-size: 11px;
+}
+
+.smaller ul {
+   margin: 0px 7px;
+   padding: 0px 7px;
+}
+
+.shipping-contact-form .filled-info .section-padd {
+   padding: 5px 25px;
+}
+
+.btn-secondary.edit-button {
+   font-size: 13px;
+   color: #2d85cf;
+   display: none;
+   border: 1px solid #b5b5b5;
+   background: rgba(255, 255, 255, 1);
+   background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(240, 240, 240, 1)));
+   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f0f0f0', GradientType=0);
+   font-family: OpenSans-Semibold;
+   padding-right: 20px;
+   padding-left: 20px;
+}
+
+.btn-secondary.edit-button:hover {
+   background: rgba(255, 255, 255, 1);
+   background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(216, 216, 216, 1) 100%);
+   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(216, 216, 216, 1)));
+   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(216, 216, 216, 1) 100%);
+   background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(216, 216, 216, 1) 100%);
+   background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(216, 216, 216, 1) 100%);
+   background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(216, 216, 216, 1) 100%);
+   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d8d8d8', GradientType=0);
+}
+
+
+/* Help tip and box css */
+
+.help-tip {
+   width: 20px;
+   height: 20px;
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   border-radius: 50%;
+   background-color: #0066FF;
+   color: #fff;
+   font-size: 13px;
+   line-height: 20px;
+   text-align: center;
+   display: inline-block;
+}
+
+.help-tip:hover {
+   color: #fff;
+   text-decoration: none;
+}
+
+.help-box {
+   position: absolute;
+   z-index: 2;
+   -webkit-border-radius: 7px;
+   -moz-border-radius: 7px;
+   border-radius: 7px;
+   border: 1px solid #ccc;
+   width: 250px;
+   background: #fff;
+   color: #555;
+   font-size: 12px;
+   padding: 10px;
+   display: none;
+}
+
+.help-box p {
+   color: #555;
+   font-size: 12px;
+   margin: 0px;
+   padding: 5px;
+}
+
+.close-tip {
+   width: 20px;
+   height: 20px;
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   border-radius: 50%;
+   background-color: #0066FF;
+   color: #fff;
+   font-size: 13px;
+   line-height: 20px;
+   text-align: center;
+   display: inline-block;
+}
+
+.close-tip:hover {
+   color: #fff;
+   text-decoration: none;
+}
+
+
+/* end of help tip link and box css */
+
+
+/* enter promo field css */
+
+.enter-promo-field-div .negotiate-cart-price input[type=text] {
+   color: #777;
+   font-size: 11px;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   border-radius: 3px;
+   padding: 3px 5px;
+   border: 1px solid #ccc;
+}
+
+
+/* --- */
+
+.header-resp-back {
+   float: left;
+   display: none;
+}
+
+@media only screen and (min-width: 651px) and (max-width: 1099px) {
+   .site-container {
+      margin: 0px auto;
+      width: 90%;
+   }
+   .header .main-navigation {
+      width: 70%;
+      padding-top: 4px;
+      margin-left: 10px;
+   }
+   .header-container {
+      margin: 0px auto;
+      width: 90%;
+   }
+   .total-pricing-sec .col-sm-6.tabletresp1 {
+      display: none;
+   }
+   .total-pricing-sec .col-sm-6.tabletresp2 {
+      width: 100%!important;
+      max-width: 100%;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+   }
+   .shipping-contact-form .col-sm-3.stabs {
+      display: none;
+   }
+   .shipping-contact-form .col-sm-6.stabs {
+      width: 100%;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+   }
+}
+
+@media only screen and (max-width: 650px) {
+   .site-container {
+      margin: 0px auto;
+      width: 100%;
+   }
+   .header-container {
+      margin: 0px auto;
+      width: 90%;
+   }
+   .header-resp-back {
+      display: block;
+   }
+   .header .main-navigation {
+       display: none;
+   }
+   .header .logo {
+      width: 100%;
+      float: none;
+      text-align: center;
+   }
+   .delivery-options-page {
+      padding: 0px 0px;
+   }
+   .delivery-options-box {
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      border-radius: 0px;
+      border: none;
+   }
+   .delivery-options-box h2 {
+      font-size: 18px;
+      line-height: 24px;
+      color: #000;
+      padding: 25px 0px;
+      margin: 0px 0px 25px 0px;
+   }
+   .delivery-options-box h2.subheading {
+      font-size: 18px;
+      line-height: 24px;
+   }
+   .delivery-options-box .prod-info h3 {
+      font-size: 14px;
+      line-height: 20px;
+   }
+   .delivery-options-box .prod-info .image {
+      text-align: center;
+      padding-bottom: 20px;
+   }
+   .prod-info .grad-box .col-sm-2.resp {
+      width: 35%;
+   }
+   .prod-info .grad-box .col-sm-10.resp {
+      width: 65%;
+   }
+   .delivery-options-box .email-recycling-options {
+      padding: 20px 0px;
+   }
+   .delivery-options-box .bottom-box-text p {
+      max-width: 100%;
+   }
+   .total-pricing-sec .row .resp {
+      width: 50%;
+   }
+   .delivery-options-box .enter-promocode {
+      font-size: 12px;
+      padding-top: 20px;
+   }
+   .pay-method-cards {
+      width: 100%;
+   }
+   .delivery-options-box .payment-method-selection .offers-banner img {
+      width: 100%;
+   }
+   .store-tabs li {
+      display: block;
+      float: none;
+      width: 100%;
+      font-size: 12px;
+      color: #0085cf;
+      text-align: center;
+      padding: 3px 10px;
+      cursor: pointer;
+      border: 1px solid #cdcdcd;
+   }
+   .store-tabs li:first-child {
+      border-right: 1px solid #cdcdcd;
+      -webkit-border-top-left-radius: 0px;
+      -webkit-border-bottom-left-radius: 0px;
+      -moz-border-radius-topleft: 0px;
+      -moz-border-radius-bottomleft: 0px;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+   }
+   .store-tabs li:last-child {
+      border-left: 1px solid #cdcdcd;
+      -webkit-border-top-right-radius: 0px;
+      -webkit-border-bottom-right-radius: 0px;
+      -moz-border-radius-topright: 0px;
+      -moz-border-radius-bottomright: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+   }
+   #financing_tab_section .apply-button {
+      text-align: center;
+      padding-top: 10px;
+   }
+   .delivery-options-box .continue-button-section {
+      background: #f2f2f2;
+      border: none;
+      padding-top: 25px;
+      padding-bottom: 25px;
+   }
+   .delivery-options-box .continue-button-section .btn-primary {
+      font-size: 13px;
+      background: #158cfb;
+      width: 100%;
+      padding-top: 17px;
+      padding-bottom: 17px;
+      border: none;
+   }
+   .btn-secondary.edit-button {
+      background: none;
+      border: none;
+   }
+   .btn-secondary.edit-button:hover {
+      background: none;
+   }
+   .prod-info .col-sm-3.do-resp {
+      float: left;
+      width: 25%;
+   }
+   .prod-info .col-sm-9.do-resp {
+      float: left;
+      width: 75%;
+   }
+   .delivery-options-box .prod-info .image img {
+      width: 100%;
+   }
+   .delivery-options-box .prod-info .grad-box {
+      background: #fff;
+      border: none;
+   }
+}
+
+input.ng-invalid {
+   border-right: 3px solid red;
+}
+
+input.ng-invalid.ng-touched {
+    border-left: 1px solid red;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+ }
+ 
+
+/* Apple Pay Style guide */
+
+.apple-pay {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+ 
+.apple-pay-button {
+    -webkit-appearance: -apple-pay-button; 
+    -apple-pay-button-type: buy;
+    visibility: hidden;
+    display: inline-block;
+    width: 200px;
+    min-height: 30px;
+    border: 1px solid black;
+    background-image: -webkit-named-image(apple-pay-logo-black);
+    background-size: 100% calc(60% + 2px);
+    background-repeat: no-repeat;
+    background-color: white;
+    background-position: 50% 50%;
+    border-radius: 5px;
+    padding: 0px;
+    margin: 5px auto;
+    transition: background-color .15s;
+}
+ 
+.apple-pay-button.visible {
+    visibility: visible;
+}
+ 
+.apple-pay-button:active {
+    background-color: rgb(152, 152, 152);
+}

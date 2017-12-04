@@ -1,0 +1,467 @@
+<!--
+Copyright (C) Nisum Technologies
+
+This software may be modified and distributed under the terms
+of the MIT license.  See the LICENSE file for details.
+-->
+<h2 class="subheading" id="paymentInfoHeading">
+      <span class="iconnic" *ngIf="step.index > 0">{{step.index}}</span> 
+      {{step.title}} 
+      <a class="btn btn-secondary edit-button pull-right" 
+         id="paymentInfoEditButton" 
+         (click)="onEditClick()"
+         role="button">Edit
+      </a>
+</h2>
+<!-- Filled payment info section -->
+<div id="paymentFilledInfo" style="display:none;">
+   <div class="shipping-contact-form">
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="filled-info">
+               <fieldset>
+                  <div class="form-fields">
+                     <legend class="label">Information you entered</legend>
+                     <div class="section-padd">
+                        <p>
+                           Name: &nbsp; {{paymentInfo.firstName}} {{paymentInfo.lastName}} <br /> 
+                           Email: &nbsp; {{paymentInfo.email}}<br /> 
+                           Phone number: &nbsp; {{paymentInfo.areaCode}} {{paymentInfo.primaryPhone}}<br /> 
+                           Street Address: &nbsp; {{paymentInfo.addressInfo.address}} {{paymentInfo.addressInfo.address2}}
+                        </p>
+                     </div>
+                  </div>
+               </fieldset>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- End of filled payment info section -->
+<!-- Input Paument info section -->
+<form id="payment" (ngSubmit)="onContinueClick()" #f="ngForm">
+<div id="paymentInfoSection" style="display:none;">
+   <div class="shipping-contact-form">
+      <div class="row">
+         <div class="col-sm-3 stabs"></div>
+         <div class="col-sm-6 stabs">
+            <ul class="store-tabs">
+               <li class="active" id="creditcard_tab">Debit/Credit Card</li>
+               <li id="financing_tab">Financing</li>
+               <li id="giftcard_tab">Store Gift Card</li>
+            </ul>
+            <div class="clear"></div>
+         </div>
+         <div class="col-sm-3 stabs"></div>
+      </div>
+      <div id="creditcard_tab_section" class="tab-sections">
+         <div class="row">
+            <div class="col-sm-6">
+               <div>
+                  <fieldset>
+                     <div class="form-fields">
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <legend class="label">Country of Billing Address </legend>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <div class="form-group">
+                                 <select [(ngModel)]="paymentInfo.countryOfBilling"
+                                          required
+                                          #countryOfBilling="ngModel"
+                                          name="countryOfBilling" 
+                                          class="form-control">
+                                    <option value="United States" selected>United States</option>
+                                 </select>
+                                 <span class="help-block" *ngIf="!countryOfBilling.valid && countryOfBilling.touched">Country is required!</span>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <legend class="label">Billing Contact</legend>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-5">
+                              <div class="form-group">
+                                 <input   [(ngModel)]="paymentInfo.firstName"
+                                          name="firstName" 
+                                          required
+                                          #firstName="ngModel"
+                                          type="text" 
+                                          id="shipping-user-firstname" 
+                                          class="form-control" 
+                                          placeholder="First Name" />
+                                 <span class="help-block" *ngIf="!firstName.valid && firstName.touched">First name is required!</span>
+                              </div>
+                           </div>
+                           <div class="col-sm-7">
+                              <div class="form-group">
+                                 <input   [(ngModel)]="paymentInfo.lastName"
+                                          required
+                                          #lastName="ngModel"
+                                          name="lastName" 
+                                          type="text" 
+                                          id="shipping-user-lastname" 
+                                          class="form-control" 
+                                          placeholder="Last Name" />
+                              <span class="help-block" *ngIf="!lastName.valid && lastName.touched">Last name is required!</span>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-3">
+                              <div class="form-group">
+                                 <input   [(ngModel)]="paymentInfo.areaCode"
+                                          name="areaCode" 
+                                          required
+                                          #areaCode="ngModel"
+                                          type="text" 
+                                          id="" 
+                                          class="form-control" 
+                                          placeholder="Area Code" />
+                              <span class="help-block" *ngIf="!areaCode.valid && areaCode.touched">Area code is required!</span>
+                              </div>
+                           </div>
+                           <div class="col-sm-9">
+                              <div class="form-group">
+                                 <input   [(ngModel)]="paymentInfo.primaryPhone"
+                                          name="primaryPhone" 
+                                          required
+                                          #primaryPhone="ngModel"
+                                          type="text" id="" 
+                                          class="form-control" 
+                                          placeholder="Primary Phone" />
+                                  <span class="help-block" *ngIf="!primaryPhone.valid && primaryPhone.touched">Primary phone is required!</span>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-3">
+                              <div class="form-group">
+                                 <input ngModel
+                                          name="alternateAreaCode" 
+                                          type="text" 
+                                          id="" 
+                                          class="form-control" 
+                                          placeholder="Area Code" />
+                              </div>
+                           </div>
+                           <div class="col-sm-9">
+                              <div class="form-group">
+                                 <input ngModel name="alternatePrimaryPhone" type="text" id="" class="form-control" placeholder="Alternate Phone" />
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <div class="form-group">
+                                 <input [(ngModel)]="paymentInfo.email" name="email" type="text" id="" class="form-control" placeholder="Email Address" />
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <legend class="label">Billing Address </legend>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <div class="form-group">
+                                 <input [(ngModel)]="paymentInfo.companyName" name="companyName" type="text" id="" class="form-control" placeholder="Company Name (optional)" />
+                              </div>
+                           </div>
+                        </div>
+                        <div ngModelGroup="addressInfo">
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <div class="form-group">
+                                 <input [(ngModel)]="paymentInfo.addressInfo.address" name="address" type="text" id="" class="form-control" placeholder="Street Address" />
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <div class="form-group">
+                                 <input [(ngModel)]="paymentInfo.addressInfo.address2" name="address2" type="text" id="" class="form-control" placeholder="Apt, Suite, Bldg, Gate Code. (optional)" />
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-3">
+                              <div class="form-group">
+                                 <input [(ngModel)]="paymentInfo.addressInfo.zipCode" name="zipcode" type="text" id="" class="form-control" placeholder="Zip Code" />
+                              </div>
+                           </div>
+                           <div class="col-sm-9">
+                              <div class="form-group">
+                                 <div class="enter-zip-txt">Enter Zip for City and State</div>
+                              </div>
+                           </div>
+                        </div>
+                        </div>
+                     </div>
+                  </fieldset>
+               </div>
+            </div>
+            <div class="col-sm-6">
+               <div class="payment-method-selection">
+                  <fieldset>
+                     <div class="form-fields">
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <legend class="label">Payment Method</legend>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <input class="magic-radio" type="radio" name="paymentMethod" id="" value="option" checked="checked">
+                              <label for="cardsradio">
+                              <img src="assets/images/cards.png" class="pay-method-cards img-responsive" />
+                              </label>
+                           </div>
+                        </div>
+                        <div ngModelGroup="creditCardInfo">
+                        <div class="cc-sec-padd">
+                           <div class="row">
+                              <div class="col-sm-8">
+                                 <div class="form-group">
+                                    <input [(ngModel)]="paymentInfo.creditCardInfo.cardNumber" 
+                                          name="cardNumber" type="text" id="" class="form-control" placeholder="Debit/Credit Card Number" />
+                                 </div>
+                              </div>
+                              <div class="col-sm-4">
+                                 <div class="form-group">
+                                    <input [(ngModel)]="paymentInfo.creditCardInfo.securityCode"
+                                           name="securityCode" type="text" id="" class="form-control" placeholder="Security Code" />
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-sm-2">
+                                 <div class="form-group">
+                                    <div class="enter-zip-txt">Expires</div>
+                                 </div>
+                              </div>
+                              <div class="col-sm-3">
+                                 <div class="form-group">
+                                    <select [(ngModel)]="paymentInfo.creditCardInfo.expiryMonth"
+                                                 name="expiryMonth" class="form-control">
+                                       <option value="">Month</option>
+                                       <option value="1">Jan</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="col-sm-3">
+                                 <div class="form-group">
+                                    <select [(ngModel)]="paymentInfo.creditCardInfo.expiryYear"
+                                           name="expiryYear" class="form-control">
+                                       <option value="">Year</option>
+                                       <option value="20">2020</option>
+                                    </select>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <input class="magic-radio" type="radio" name="paymentMethod" id="" value="option">
+                              <label for="paypalradio">
+                              <img src="assets/images/paypal.png" style="width:100px;" />
+                              </label>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <div class="offers-banner"><img src="assets/images/checkout-financing-offers.jpg" /></div>
+                           </div>
+                        </div>
+                     </div>
+                  </fieldset>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="financing_tab_section" class="tab-sections" style="display:none;">
+         <div class="row">
+            <div class="col-sm-3">
+               <div class="financing-sec-img"><img src="assets/images/uflp-barclay-card.png" /></div>
+            </div>
+            <div class="col-sm-7">
+               <div class="policy-points">
+                  <h4>Barclaycard Visa with Rewards</h4>
+                  <ul>
+                     <li><b>Special financing for up to 18 months.</b><br /> Special financing on purchases made within the first 30 days of account opening. Restrictions apply. See offer details.(Barclaycard Financing Visa Card)</li>
+                     <li><b>Promo period based on purchase amount. </b><br /> 6 months: less than $499, 12 months: $499 to less than $999, 18 months: $999 and over.</li>
+                     <li><b>Earn reward points for every purchase. </b><br /> Get 3 points for every $1 spent at Apple, 2 points for every $1 spent at restaurants, and 1 point for every $1 spent on all other purchases.
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="col-sm-2">
+               <div class="apply-button">
+                  <a class="btn btn-primary btn-grad-blue" href="#" role="button">Apply</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="giftcard_tab_section" class="tab-sections" style="display:none;">
+         <div class="row">
+            <div class="col-sm-6">
+               <div>
+                  <fieldset>
+                     <div class="form-fields">
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <div class="pull-right small"><a href="#">Same as shipping information</a></div>
+                              <legend class="label">Country of Billing Address </legend>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <div class="form-group">
+                                 <select name="country1" class="form-control">
+                                    <option value="United States">United States</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <legend class="label">Billing Contact </legend>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-5">
+                              <div class="form-group">
+                                 <input name="firstname1" type="text" id="shipping-user-firstname1" class="form-control" placeholder="First Name" />
+                              </div>
+                           </div>
+                           <div class="col-sm-7">
+                              <div class="form-group">
+                                 <input name="lastname1" type="text" id="shipping-user-lastname1" class="form-control" placeholder="Last Name" />
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-3">
+                              <div class="form-group">
+                                 <input name="areacode1" type="text" id="" class="form-control" placeholder="Area Code" />
+                              </div>
+                           </div>
+                           <div class="col-sm-9">
+                              <div class="form-group">
+                                 <input name="primaryphone1" type="text" id="" class="form-control" placeholder="Primary Phone" />
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-3">
+                              <div class="form-group">
+                                 <input name="areacode1" type="text" id="" class="form-control" placeholder="Area Code" />
+                              </div>
+                           </div>
+                           <div class="col-sm-9">
+                              <div class="form-group">
+                                 <input name="primaryphone1" type="text" id="" class="form-control" placeholder="Primary Phone" />
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <div class="form-group">
+                                 <input name="email1" type="text" id="" class="form-control" placeholder="Email Address" />
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <legend class="label">Billing Address </legend>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <div class="form-group">
+                                 <input name="company1" type="text" id="" class="form-control" placeholder="Company Name (optional)" />
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <div class="form-group">
+                                 <input name="address1" type="text" id="" class="form-control" placeholder="Street Address" />
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <div class="form-group">
+                                 <input name="apt1" type="text" id="" class="form-control" placeholder="Apt, Suite, Bldg, Gate Code. (optional)" />
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-3">
+                              <div class="form-group">
+                                 <input name="zipcode1" type="text" id="" class="form-control" placeholder="Zip Code" />
+                              </div>
+                           </div>
+                           <div class="col-sm-9">
+                              <div class="form-group">
+                                 <div class="enter-zip-txt">Enter Zip for City and State</div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </fieldset>
+               </div>
+            </div>
+            <div class="col-sm-6">
+               <div class="payment-method-selection">
+                  <fieldset>
+                     <div class="form-fields">
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <legend class="label">Store Gift Card</legend>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-4">
+                              <div class="form-group">
+                                 <input name="pin" type="text" id="" class="form-control" placeholder="Pin" />
+                              </div>
+                           </div>
+                           <div class="col-sm-8">
+                              <div class="form-group">
+                                 <div class="enter-zip-txt"><a href="#">Apply</a></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <div class="smaller">
+                                 <ul>
+                                    <li>Pay with up to eight gift cards</li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </fieldset>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- End of payment info form section -->
+<!-- Third Continue button -->
+<div class="continue-button-section" id="continueButtonSec3" style="display:none;">
+      <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Continue</button>
+</div>
+<!-- End of third continue button -->
+</form>
